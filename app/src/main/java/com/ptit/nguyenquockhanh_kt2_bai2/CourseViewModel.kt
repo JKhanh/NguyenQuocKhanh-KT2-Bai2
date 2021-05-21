@@ -71,9 +71,9 @@ class CourseViewModel(
     }
 
     fun countActive(){
-        viewModelScope.launch(dispatchers.io){
+        viewModelScope.launch(dispatchers.main){
             _coursesA.removeSource(courseASource)
-            withContext(dispatchers.main){
+            withContext(dispatchers.io){
                 courseASource = courseDao.getActive()
             }
             _coursesA.addSource(courseASource){

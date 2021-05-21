@@ -27,14 +27,14 @@ class MainActivity : AppCompatActivity() {
 
         binding.lifecycleOwner = this
         viewModel.getAllCourse()
-//        viewModel.countActive()
+        viewModel.countActive()
         setContentView(binding.root)
 
-//        viewModel.coursesA.observe(this){
-//            if(it != null){
-//                binding.txtCourseNo.text = "$it + active Course"
-//            }
-//        }
+        viewModel.coursesA.observe(this){
+            if(it != null){
+                binding.txtCourseNo.text = "$it active Course"
+            }
+        }
 
         val adapter = CourseAdapter(this,
             object : CourseClickListener {
